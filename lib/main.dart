@@ -2,6 +2,9 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mobile_draft/screen/camera_screen.dart';
+import 'package:dio/dio.dart';
+import 'dart:convert';
+import 'dart:io';
 
 
 late List<CameraDescription> cameras;
@@ -86,6 +89,7 @@ class _CameraAppState extends State<CameraApp> {
                         try {
                           await _controller.setFlashMode(FlashMode.auto);
                           XFile file = await _controller.takePicture();
+                          
                           // another screen to preview image
                           Navigator.push(
                             context, 
